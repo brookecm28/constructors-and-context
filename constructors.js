@@ -150,14 +150,17 @@ Movie.prototype.changeRating = function(num) {
   // Code here
 
   User.prototype.removeSavedPost = function (id) {
-    for (let i = 0; i <= this.savedPosts.length; i++) {
+    for (let i = 0; i < this.savedPosts.length; i++) {
       if (this.savedPosts[i].id === id) {
-        this.savedPosts.splice(this.savedPosts[i], 1)
+        this.savedPosts.splice(i, 1)
+        console.log(this.savedPosts)
+        
         i--
       }
     }
     return this.savedPosts
   }
+
   
   ////////// PROBLEM 7 //////////
   
@@ -172,6 +175,9 @@ Movie.prototype.changeRating = function(num) {
   // Code here
 
   User.prototype.changePostRating = function (num1, num2) {
-    
+    for (let i = 0; i < this.savedPosts.length; i++) {
+      if (this.savedPosts[i].id === num1) {
+        this.savedPosts[i].rating = num2
+      }
   }
-  
+}
